@@ -13,10 +13,7 @@ import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.security.web.savedrequest.RequestCache;
 import org.springframework.security.web.savedrequest.SavedRequest;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -55,6 +52,22 @@ public class LoginController {
         }
         return new SimpleResponse("访问的服务需要身份认证，请引导用户到登录页面");
     }
+    /**
+     * 测试资源1
+     * @return
+     */
+    @PostMapping(value = "/user/{id}")
+    public String userId1(@PathVariable("id") String id){
+        return id+" 访问资源1";
+    }
+
+
+    @GetMapping(value = "/user/{id}")
+    public String userId2(@PathVariable("id") String id){
+        return id+" 访问资源1";
+    }
+
+
 
     /**
      * 测试资源1

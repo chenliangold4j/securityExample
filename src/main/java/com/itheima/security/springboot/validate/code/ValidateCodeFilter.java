@@ -24,6 +24,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ * 自己的过滤器，加入security的过滤器链，如果用户名密码过了，就用这个再验证 图片，sms等
  * @author zhailiang
  *
  */
@@ -96,6 +97,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
 			throws ServletException, IOException {
 
 		ValidateCodeType type = getValidateCodeType(request);
+		logger.info("type:"+type);
 		if (type != null) {
 			logger.info("校验请求(" + request.getRequestURI() + ")中的验证码,验证码类型" + type);
 			try {

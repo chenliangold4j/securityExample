@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class ValidateCode {
 	
 	private String code;
-	
+
 	private LocalDateTime expireTime;
 	
 	public ValidateCode(String code, int expireIn){

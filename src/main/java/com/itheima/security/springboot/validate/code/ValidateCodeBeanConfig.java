@@ -5,6 +5,8 @@ package com.itheima.security.springboot.validate.code;
 
 import com.itheima.security.springboot.properties.SecurityProperties;
 import com.itheima.security.springboot.validate.code.image.ImageCodeGenerator;
+import com.itheima.security.springboot.validate.code.sms.DefaultSmsCodeSender;
+import com.itheima.security.springboot.validate.code.sms.SmsCodeSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -28,10 +30,10 @@ public class ValidateCodeBeanConfig {
 		return codeGenerator;
 	}
 	
-//	@Bean
-//	@ConditionalOnMissingBean(SmsCodeSender.class)
-//	public SmsCodeSender smsCodeSender() {
-//		return new DefaultSmsCodeSender();
-//	}
+	@Bean
+	@ConditionalOnMissingBean(SmsCodeSender.class)
+	public SmsCodeSender smsCodeSender() {
+		return new DefaultSmsCodeSender();
+	}
 
 }

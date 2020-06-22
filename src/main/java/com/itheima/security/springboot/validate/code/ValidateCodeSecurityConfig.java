@@ -24,6 +24,7 @@ public class ValidateCodeSecurityConfig extends SecurityConfigurerAdapter<Defaul
 	
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
+		System.out.println("添加 validateCodeFilter");
 		http.addFilterBefore(validateCodeFilter, AbstractPreAuthenticatedProcessingFilter.class);
 	}
 	

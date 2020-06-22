@@ -15,8 +15,9 @@ import java.time.LocalDateTime;
  */
 public class ImageCode extends ValidateCode {
 	
-	private BufferedImage image; 
-	
+	private BufferedImage image;
+	private String url;
+
 	public ImageCode(BufferedImage image, String code, int expireIn){
 		super(code, expireIn);
 		this.image = image;
@@ -35,4 +36,11 @@ public class ImageCode extends ValidateCode {
 		this.image = image;
 	}
 
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
 }
